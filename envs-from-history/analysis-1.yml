@@ -1,0 +1,18 @@
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - tskit
+  - moments
+  - pysam
+  - pandas
+  - numpy
+  - scikit-learn
+  - scipy
+  - xarray
+  - ipykernel
+  - statsmodels
+  - matplotlib
+  - demes
+  - demesdraw
