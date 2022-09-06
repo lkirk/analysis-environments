@@ -7,4 +7,4 @@ set -eu
 
 INPUT_FILE="$1"
 
-conda env create -n $(basename .yml "$INPUT_FILE") -f "$INPUT_FILE"
+conda env create -n $(basename -s .yml "$INPUT_FILE") -f "$INPUT_FILE"
