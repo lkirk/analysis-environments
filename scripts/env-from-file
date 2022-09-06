@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -eu
+
+[ $(command -v conda) ] || (echo 'conda is not installed'; exit 1)
+[ $(command -v basename) ] || (echo 'basename is not installed'; exit 1)
+
+INPUT_FILE="$1"
+
+conda env create -n $(basename .yml "$INPUT_FILE") -f "$INPUT_FILE"
