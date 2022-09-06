@@ -2,16 +2,24 @@
 
 set -e
 
-[ $(command -v jq) ] || (echo 'jq is not installed'; exit 1)
+[ $(command -v awk) ] || (echo 'awk is not installed'; exit 1)
 [ $(command -v conda) ] || (echo 'conda is not installed'; exit 1)
 [ $(command -v basename) ] || (echo 'basename is not installed'; exit 1)
 
-for conda_env_dir in $(conda env list --json | jq -r '.envs[]'); do
-    conda_env_name="$(basename "$conda_env_dir")"
-    if [ $conda_env_name = "miniconda3" ]; then
-        continue
-    fi
-    echo "Backing up $conda_env_name"
-    conda env export --name "$conda_env_name" | grep -Ev -e '^prefix: ' -e '^name: ' > "envs/${conda_env_name}.yml"
-    conda env export --from-history --name "$conda_env_name" | grep -Ev -e '^prefix: ' -e '^name: ' > "envs-from-history/${conda_env_name}.yml"
+conda_env_list="$(conda env list | awk '$1!="#" && $1!="base" && $1 {print $1}')"
+
+for env_name in $conda_env_list; do
+    echo "Backing up $env_name"
+    conda env export --name "$env_name" | grep -Ev -e '^prefix: ' -e '^name: ' > "envs/${env_name}.yml"
+    conda env export --from-history --name "$env_name" | grep -Ev -e '^prefix: ' -e '^name: ' > "envs-from-history/${env_name}.yml"
+done
+
+for env_dir in envs envs-from-history; do
+    for env_file in $env_dir/*; do
+	env_name="$(basename -s .yml "$env_file")"
+	if ! echo "$conda_env_list" | grep -q "$env_name"; then
+	    echo "$env_name does not exist, deleting $env_file"
+	    rm "$env_file"
+	fi
+    done
 done
