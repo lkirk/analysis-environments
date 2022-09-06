@@ -1,0 +1,11 @@
+{
+ "argv": [
+  "/home/lkirk/.local/share/jupyter/kernels/tskit-dev-1/run-kernel",
+  "{connection_file}"
+ ],
+ "display_name": "tskit-dev-1",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}

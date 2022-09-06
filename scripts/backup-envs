@@ -23,3 +23,8 @@ for env_dir in envs envs-from-history; do
 	fi
     done
 done
+
+KERNEL_DIR=~/.local/share/jupyter/kernels
+
+echo "Backing up $KERNEL_DIR"
+[ -d $KERNEL_DIR ] && cp -r $KERNEL_DIR jupyter-kernels

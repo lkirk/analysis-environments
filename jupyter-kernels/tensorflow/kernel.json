@@ -1,0 +1,14 @@
+{
+ "argv": [
+  "/home/lkirk/.conda/envs/tensorflow/bin/python",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "tensorflow",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}

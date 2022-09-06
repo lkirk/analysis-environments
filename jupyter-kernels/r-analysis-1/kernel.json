@@ -1,0 +1,5 @@
+{
+  "argv": ["/home/lkirk/.conda/envs/R-analysis-1/lib/R/bin/R", "--slave", "-e", "IRkernel::main()", "--args", "{connection_file}"],
+  "display_name": "R",
+  "language": "R"
+}

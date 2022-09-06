@@ -1,0 +1,13 @@
+{
+  "display_name": "julia 1.7.3",
+  "argv": [
+    "/home/lkirk/.conda/envs/julia/bin/julia",
+    "-i",
+    "--color=yes",
+    "/home/lkirk/.conda/envs/julia/share/julia/packages/IJulia/AQu2H/src/kernel.jl",
+    "{connection_file}"
+  ],
+  "language": "julia",
+  "env": {},
+  "interrupt_mode": "signal"
+}
