@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -eu
 
 [ $(command -v awk) ] || (echo 'awk is not installed'; exit 1)
 [ $(command -v conda) ] || (echo 'conda is not installed'; exit 1)
